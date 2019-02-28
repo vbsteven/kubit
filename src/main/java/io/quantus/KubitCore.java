@@ -92,7 +92,11 @@ public class KubitCore {
         }
     }
 
-    public Optional<Entry> findEntry(String name) {
-        return config.findEntry(name);
+    public Optional<Entry> findEntryByName(String name) {
+        return config.findEntryByName(name);
+    }
+
+    public Optional<Entry> findEntryByKubeconfig(String kubeconfig) {
+        return config.findEntryByKubeconfig(kubeconfig);
     }
 }

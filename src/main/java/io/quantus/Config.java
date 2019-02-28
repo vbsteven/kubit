@@ -16,13 +16,9 @@ public class Config {
         return entries;
     }
 
-    public void setEntries(List<Entry> entries) {
-        this.entries = entries;
-    }
-
     public void addEntry(Entry entry, boolean overwrite) throws EntryAlreadyExistsException {
         // first lookup to see if the entry exists
-        Optional<Entry> preexistingEntry = findEntry(entry.getName());
+        Optional<Entry> preexistingEntry = findEntryByName(entry.getName());
         if (preexistingEntry.isPresent()) {
             if (overwrite) {
                 preexistingEntry.get().setKubeconfig(entry.getKubeconfig());
@@ -36,13 +32,19 @@ public class Config {
     }
 
     public void removeEntry(String name) throws EntryNotFoundException {
-        Entry entry = findEntry(name).orElseThrow(EntryNotFoundException::new);
+        Entry entry = findEntryByName(name).orElseThrow(EntryNotFoundException::new);
         this.entries.remove(entry);
     }
 
-    public Optional<Entry> findEntry(String name) {
+    public Optional<Entry> findEntryByName(String name) {
         return entries.stream()
                 .filter(e -> e.getName().equals(name))
+                .findFirst();
+    }
+
+    public Optional<Entry> findEntryByKubeconfig(String kubeconfig) {
+        return entries.stream()
+                .filter(e -> e.getKubeconfig().equals(kubeconfig))
                 .findFirst();
     }
 }

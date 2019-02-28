@@ -14,7 +14,7 @@ public class UseCommand implements Runnable {
 
     @Override
     public void run() {
-        Optional<Entry> entry = KubitCore.get().findEntry(name);
+        Optional<Entry> entry = KubitCore.get().findEntryByName(name);
         if (!entry.isPresent()) {
             System.err.printf("* no entry with name '%s' exists\n", name);
             System.exit(1);

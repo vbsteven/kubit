@@ -27,6 +27,11 @@ You can eval the output of this command to apply the variables or apply them dir
 $ kubit rm development
 ```
 
+* Show currently configured entry
+```sh
+$ kubit current
+```
+
 * print usage with no opts or the `help` subcommand
 ```sh
 $ kubit help
