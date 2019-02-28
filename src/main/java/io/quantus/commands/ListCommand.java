@@ -1,6 +1,5 @@
 package io.quantus.commands;
 
-import io.quantus.Config;
 import io.quantus.KubitCore;
 import picocli.CommandLine;
 
@@ -9,7 +8,7 @@ public class ListCommand implements Runnable {
 
     @Override
     public void run() {
-        KubitCore core = new KubitCore();
+        KubitCore core = KubitCore.get();
 
         System.out.printf("* All entries\n");
 
