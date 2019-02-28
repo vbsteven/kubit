@@ -25,6 +25,7 @@ public class AddCommand implements Runnable {
             System.out.printf("* entry added\n");
         } catch (EntryAlreadyExistsException e) {
             System.out.printf("* entry with name '%s' already exists\n", name);
+            System.exit(1);
         }
 
     }

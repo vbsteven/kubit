@@ -1,0 +1,24 @@
+function kubit {
+  if [ -z "$1"  ]
+  then
+  else
+    if [ $1 = "init" ]
+    then
+      eval "$(command kubit $@)"
+    elif [ $1 = "use" ]
+    then
+      output="$(command kubit $@)"
+      if [ $? -eq 0 ];
+      then
+        # succeeded, eval
+        eval "$output"
+      else
+        # command errored
+        echo $output
+      fi
+      #eval "$(command kubit $@)"
+    else
+      command kubit $@
+    fi
+  fi
+}

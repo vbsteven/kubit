@@ -1,9 +1,6 @@
 package io.quantus;
 
-import io.quantus.commands.AddCommand;
-import io.quantus.commands.InitCommand;
-import io.quantus.commands.ListCommand;
-import io.quantus.commands.RmCommand;
+import io.quantus.commands.*;
 import picocli.CommandLine;
 
 @CommandLine.Command(subcommands = {
@@ -11,7 +8,8 @@ import picocli.CommandLine;
         ListCommand.class,
         AddCommand.class,
         RmCommand.class,
-        InitCommand.class
+        InitCommand.class,
+        UseCommand.class
 }, name = "kubit")
 public class KubitApp implements Runnable {
 

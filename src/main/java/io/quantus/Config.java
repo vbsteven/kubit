@@ -40,7 +40,7 @@ public class Config {
         this.entries.remove(entry);
     }
 
-    private Optional<Entry> findEntry(String name) {
+    public Optional<Entry> findEntry(String name) {
         return entries.stream()
                 .filter(e -> e.getName().equals(name))
                 .findFirst();

@@ -2,11 +2,26 @@ package io.quantus.commands;
 
 import picocli.CommandLine;
 
+import java.io.*;
+
 @CommandLine.Command(name = "init", description = "Initializes the bash/zsh helper functions")
 public class InitCommand implements Runnable {
     @Override
     public void run() {
-        System.out.printf("Inside init");
 
+
+        InputStream in = getClass().getClassLoader()
+                .getResourceAsStream("shell_init.txt");
+        try {
+            BufferedReader r = new BufferedReader(new InputStreamReader(in));
+            String line;
+            while ((line = r.readLine()) != null) {
+                System.out.printf("%s\n", line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

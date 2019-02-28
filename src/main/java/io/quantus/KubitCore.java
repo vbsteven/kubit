@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 
 public class KubitCore {
 
@@ -90,5 +91,9 @@ public class KubitCore {
             System.exit(1);
         }
 
+    }
+
+    public Optional<Entry> findEntry(String name) {
+        return config.findEntry(name);
     }
 }

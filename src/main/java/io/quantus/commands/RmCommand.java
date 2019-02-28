@@ -18,6 +18,7 @@ public class RmCommand implements Runnable {
             System.out.printf("* entry '%s' removed\n", name);
         } catch (EntryNotFoundException e) {
             System.out.printf("* no entry exists with name '%s'\n", name);
+            System.exit(1);
         }
     }
 }
