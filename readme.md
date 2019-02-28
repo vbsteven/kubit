@@ -2,7 +2,8 @@
 
 Kubit helps you manage multiple kubernetes configs on the same machine
 
-# Usage
+Usage
+-----
 
 * Add an entry
 ```sh
@@ -12,6 +13,11 @@ $ kubit add development ~/Projects/dev/kubeconfig
 * List all entries
 ```sh
 $ kubit list
+```
+
+* use an entry
+```sh
+$ kubit use development
 ```
 
 * Remove an entry
@@ -25,13 +31,12 @@ $ kubit help
 ```
 
 
+Installation
+------------
 
 
-
-# Installation
-
-
-# Inspiration
+Inspiration
+-----------
 
 Kubit is inspired by the following projects
 * wd (https://github.com/mfaerevaag/wd)[https://github.com/mfaerevaag/wd]
