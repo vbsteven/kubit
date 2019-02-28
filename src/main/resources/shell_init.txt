@@ -1,23 +1,23 @@
 function kubit {
   if [ -z "$1"  ]
   then
+    # run without arguments, forward to regular kubit binary
+    command kubit $@
   else
-    if [ $1 = "init" ]
+    if [ $1 = "use" ]
     then
-      eval "$(command kubit $@)"
-    elif [ $1 = "use" ]
-    then
+      # execute command first and store output so we can test for success
       output="$(command kubit $@)"
       if [ $? -eq 0 ];
       then
-        # succeeded, eval
+        # command succeeded, eval the output to export variables
         eval "$output"
       else
-        # command errored
+        # command failed, show output for error messages
         echo $output
       fi
-      #eval "$(command kubit $@)"
     else
+      # non-use command, use regular kubit binary
       command kubit $@
     fi
   fi
