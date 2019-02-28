@@ -20,7 +20,7 @@ $ kubit use development
 ```
 
 This will output environment variable export statements to configure your environment for the given entry.
-You can eval the output of this command to apply the variables or apply them directly by executing kubit through its shell wrapper (see )
+You can eval the output of this command to apply the variables or apply them directly by executing kubit through its shell wrapper (see installation docs below)
 
 * Remove an entry
 ```sh
@@ -70,6 +70,8 @@ shell and copy the output into your `.zshrc`/`.bashrc`
 * `kubit clean`
 * add binary distribution zip to Github
 * finish docs
+* shell autocompletion
+* unify error handling
 
 
 Inspiration

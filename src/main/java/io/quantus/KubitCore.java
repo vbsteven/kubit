@@ -26,20 +26,21 @@ public class KubitCore {
     }
 
     public static void init(String configFilename) {
-        Path configPath = Paths.get(System.getProperty("user.home"), ".kubit"); // default to .kubit in home dir
+         // default to .kubit in home dir
+        Path configPath = Paths.get(System.getProperty("user.home"), ".kubit");
 
         if (configFilename != null) {
             configPath = Paths.get(configFilename);
         }
 
         if (Files.notExists(configPath)) {
-            // creating config file
             System.out.printf("* Creating config file at %s\n", configPath);
             try {
                 Files.createFile(configPath);
                 Files.write(configPath, "{\"entries\":[]}".getBytes());
             } catch (IOException e) {
                 System.err.printf("* Could not write config file %s\n", configPath);
+                System.exit(1);
             }
         }
 
@@ -70,13 +71,12 @@ public class KubitCore {
     }
 
     private void readConfig() {
-
         try {
             String input = new String(Files.readAllBytes(configPath));
-
             this.config = objectMapper.readValue(input, Config.class);
         } catch (IOException e) {
-            System.err.printf("* could not read from config file %s\n", configPath);
+            System.err.printf("* could not read from config file %s\n",
+                              configPath);
             System.exit(1);
         }
     }
@@ -90,7 +90,6 @@ public class KubitCore {
                               configPath);
             System.exit(1);
         }
-
     }
 
     public Optional<Entry> findEntry(String name) {

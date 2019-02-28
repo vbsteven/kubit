@@ -8,8 +8,8 @@ import java.io.*;
 public class InitCommand implements Runnable {
     @Override
     public void run() {
-
-
+        // for easy maintenance the init scripts are defined in resources/shell_init.txt
+        // and this command just reads the resource and prints to stdout
         InputStream in = getClass().getClassLoader()
                 .getResourceAsStream("shell_init.txt");
         try {
@@ -18,8 +18,6 @@ public class InitCommand implements Runnable {
             while ((line = r.readLine()) != null) {
                 System.out.printf("%s\n", line);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

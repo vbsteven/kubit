@@ -7,9 +7,6 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        KubitApp app = CommandLine.populateCommand(new KubitApp(),args);
-
-
         CommandLine cmd = new CommandLine(new KubitApp());
 
         List<CommandLine> cmds = cmd.parse(args);

@@ -5,7 +5,7 @@ import io.quantus.KubitCore;
 import io.quantus.exceptions.EntryAlreadyExistsException;
 import picocli.CommandLine;
 
-@CommandLine.Command(name = "add", description = "Adds the given <kubeconfig> as <name>")
+@CommandLine.Command(name = "add", description = "Adds the given KUBECONFIG as NAME")
 public class AddCommand implements Runnable {
 
     @CommandLine.Parameters(paramLabel = "NAME", index = "0")
