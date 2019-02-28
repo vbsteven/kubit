@@ -1,9 +1,8 @@
 # Kubit
 
-Kubit helps you manage multiple kubernetes configs on the same machine, it works very similar to 
+Kubit helps you manage multiple kubernetes configs on the same machine, it works similar to the wd utility in Zsh. With `kubit add` you can couple a simple label to the location of a kubeconfig file and `kubit use` will set the `KUBECONFIG` environment variable to the correct value. 
 
-Usage
------
+## Usage
 
 * Add an entry
 ```sh
@@ -36,6 +35,9 @@ $ kubit help
 
 ## Installation
 
+Kubit needs a Java 8 JRE (or higher) for running and a Java 8 JDK (or higher)
+for building from source.
+
 ### From source
 
 Clone the git repository and build with the following command
@@ -62,6 +64,12 @@ eval "$(kubit init)"
 
 To improve startup time of your shell you can also run `kubit init` once in your
 shell and copy the output into your `.zshrc`/`.bashrc`
+
+## TODO
+
+* `kubit clean`
+* add binary distribution zip to Github
+* finish docs
 
 
 Inspiration
