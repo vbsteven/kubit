@@ -6,6 +6,7 @@ import picocli.CommandLine;
 @CommandLine.Command(subcommands = {
         CommandLine.HelpCommand.class,
         AddCommand.class,
+        CompletionCommand.class,
         CurrentCommand.class,
         InitCommand.class,
         ListCommand.class,

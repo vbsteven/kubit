@@ -2,10 +2,17 @@ package io.quantus;
 
 import picocli.CommandLine;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
+        // special handling for completion command, we need to init the core because the completionCandidates resolving
+        if (Arrays.asList(args).contains("completion")) {
+            // TODO properly handle --config for completion init
+            KubitCore.init(null);
+        }
 
         CommandLine cmd = new CommandLine(new KubitApp());
 

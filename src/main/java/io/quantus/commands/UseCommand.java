@@ -9,7 +9,7 @@ import java.util.Optional;
 @CommandLine.Command(name = "use", description = "Use the given entry by setting KUBECONFIG")
 public class UseCommand implements Runnable {
 
-    @CommandLine.Parameters(paramLabel = "NAME", index = "0")
+    @CommandLine.Parameters(paramLabel = "NAME", index = "0", completionCandidates = EntryNameCompletionCandidates.class)
     private String name;
 
     @Override
@@ -20,9 +20,6 @@ public class UseCommand implements Runnable {
             System.exit(1);
         }
 
-        entry.ifPresent(e -> {
-            System.out.printf("export KUBECONFIG=%s\n", e.getKubeconfig());
-        });
-
+        entry.ifPresent(e -> System.out.printf("export KUBECONFIG=%s\n", e.getKubeconfig()));
     }
 }

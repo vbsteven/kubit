@@ -7,7 +7,7 @@ import picocli.CommandLine;
 @CommandLine.Command(name = "rm", description = "Removes the entry with the given NAME")
 public class RmCommand implements Runnable {
 
-    @CommandLine.Parameters(paramLabel = "NAME", index = "0")
+    @CommandLine.Parameters(paramLabel = "NAME", index = "0", completionCandidates = EntryNameCompletionCandidates.class)
     private String name;
 
     @Override
