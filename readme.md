@@ -67,7 +67,7 @@ or `.bashrc`
 eval "$(kubit init)"
 ```
 
-To improve startup time of your shell you can also run `kubit init` once in your
+As an alternative to improve startup time of your shell you can also run `kubit init` once in your
 shell and copy the output into your `.zshrc`/`.bashrc`
 
 ## TODO
@@ -83,4 +83,4 @@ Inspiration
 -----------
 
 Kubit is inspired by the following projects
-* wd (https://github.com/mfaerevaag/wd)[https://github.com/mfaerevaag/wd]
+* wd [https://github.com/mfaerevaag/wd](https://github.com/mfaerevaag/wd)
